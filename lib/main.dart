@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
         ),
         body: const Center(
           child: Text(
-            'سڵاو فریاد چۆنی',
+            'Start from number 1',
             style: TextStyle(
               fontSize: 22.0,
               fontFamily: "kurdish",
