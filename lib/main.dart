@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
         ),
         body: const Center(
           child: Text(
-            'Start from number 1',
+            'Learning git is very fun',
             style: TextStyle(
               fontSize: 22.0,
               fontFamily: "kurdish",
