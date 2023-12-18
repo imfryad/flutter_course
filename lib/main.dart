@@ -29,7 +29,7 @@ class Home extends StatelessWidget {
             'Learning git is very fun',
             style: TextStyle(
               fontSize: 22.0,
-              fontFamily: "kurdish",
+              fontFamily: "english",
             ),
           ),
         ),
