@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_app/profile_screen.dart';
-import 'communities_screen.dart';
+import 'router/go_router.dart';
 
 void main() {
   runApp(
@@ -9,7 +8,7 @@ void main() {
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.deepPurple[50], useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      routerConfig: _router,
+      routerConfig: router,
     ),
   );
 }
@@ -70,25 +69,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-// GoRouter configuration
-final _router = GoRouter(
-  initialLocation: '/',
-  routes: [
-    GoRoute(
-      name: 'HomeScreen',
-      path: '/',
-      builder: (context, state) => const HomeScreen(),
-    ),
-    GoRoute(
-      name: 'CommunitiesScreen',
-      path: '/communitiesscreen',
-      builder: (context, state) => const CommunitiesScreen(),
-    ),
-    GoRoute(
-      name: 'ProfileScreen',
-      path: '/profilescreen',
-      builder: (context, state) => const ProfileScreen(),
-    ),
-  ],
-);
