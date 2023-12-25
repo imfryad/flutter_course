@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_app/profile_screen.dart';
+import 'communities_screen.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      theme: ThemeData(scaffoldBackgroundColor: Colors.deepPurple[50]),
+    MaterialApp.router(
+      theme: ThemeData(
+          scaffoldBackgroundColor: Colors.deepPurple[50], useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      routerConfig: _router,
     ),
   );
 }
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,50 +32,63 @@ class Home extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: const Center(
-        // 1:5:00 lesson-2 , Row and Column
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            //row and columns have children, it can take many widgets
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.auto_awesome_rounded,
-                size: 50.0,
-                color: Colors.deepPurple,
-              ),
-              Text(
-                'Learning git is very fun',
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontFamily: "english",
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              NewPage(),
-            ],
+      body: Column(
+        //row and columns have children, it can take many widgets
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Center(
+            child: Icon(
+              Icons.auto_awesome_rounded,
+              size: 50.0,
+              color: Colors.deepPurple,
+            ),
           ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.deepPurple[500],
-        child: const Icon(Icons.add, color: Colors.white),
+          const Center(
+            child: Text(
+              'Learning git is very fun',
+              style: TextStyle(
+                fontSize: 28.0,
+                fontFamily: "english",
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  context.goNamed('CommunitiesScreen');
+                },
+                child: const Text("Go to feeds"),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class NewPage extends StatelessWidget {
-  const NewPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text(
-      'Today i learned how to ceate statelesswidget and use my class inside my app',
-      style: TextStyle(fontSize: 22.0),
-    );
-  }
-}
+// GoRouter configuration
+final _router = GoRouter(
+  initialLocation: '/',
+  routes: [
+    GoRoute(
+      name: 'HomeScreen',
+      path: '/',
+      builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      name: 'CommunitiesScreen',
+      path: '/communitiesscreen',
+      builder: (context, state) => const CommunitiesScreen(),
+    ),
+    GoRoute(
+      name: 'ProfileScreen',
+      path: '/profilescreen',
+      builder: (context, state) => const ProfileScreen(),
+    ),
+  ],
+);
