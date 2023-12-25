@@ -58,9 +58,10 @@ class HomeScreen extends StatelessWidget {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
-                  context.goNamed('CommunitiesScreen');
+                  context.goNamed('CommunitiesScreen',
+                      pathParameters: {'id': '1'});
                 },
-                child: const Text("Go to feeds"),
+                child: const Text("Go to Communities"),
               ),
             ),
           ),

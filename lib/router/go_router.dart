@@ -15,12 +15,12 @@ final router = GoRouter(
     ),
     GoRoute(
       name: 'CommunitiesScreen',
-      path: '/communitiesscreen',
+      path: '/communitiesscreen/:id',
       builder: (context, state) => const CommunitiesScreen(),
     ),
     GoRoute(
       name: 'ProfileScreen',
-      path: '/profilescreen',
+      path: '/profilescreen/:id',
       builder: (context, state) => const ProfileScreen(),
     ),
   ],

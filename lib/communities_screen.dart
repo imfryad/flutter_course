@@ -27,7 +27,8 @@ class CommunitiesScreen extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: ElevatedButton(
                   onPressed: () {
-                    context.goNamed('ProfileScreen');
+                    context
+                        .goNamed('ProfileScreen', pathParameters: {'id': '2'});
                   },
                   child: const Text('Go to your Profile')),
             )
